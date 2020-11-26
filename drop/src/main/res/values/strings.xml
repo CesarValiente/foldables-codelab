@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">drop</string>
+    <string name="drop_text">Write something or drop text here</string>
+    <string name="default_hint">Write something or drop text here</string>
+    <string name="move_text_to_drop">You can now drop the text here</string>
+    <string name="drop_text_now">Just drop now the text</string>
+    <string name="clear">Clear</string>
+</resources>
