@@ -1,5 +1,5 @@
 include ':drop'
 include ':drag'
-include ':launch-to-adjacent-screen'
+include ':launch-to-adjacent-window'
 include ':window-manager'
 rootProject.name = "foldables-codelab"

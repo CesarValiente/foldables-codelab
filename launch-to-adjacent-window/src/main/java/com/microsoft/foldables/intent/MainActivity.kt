@@ -10,13 +10,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        open_activity_in_adjacent_screen.setOnClickListener { openActivityInAdjacentScreen() }
+        open_activity_in_adjacent_screen.setOnClickListener { openActivityInAdjacentWindow() }
     }
 
-    private fun openActivityInAdjacentScreen() {
+    private fun openActivityInAdjacentWindow() {
         val intent = Intent(this, SecondActivity::class.java)
         intent.addFlags(
-            Intent.FLAG_ACTIVITY_MULTIPLE_TASK or
+            Intent.FLAG_ACTIVITY_LAUNCH_ADJACENT or
                 Intent.FLAG_ACTIVITY_NEW_TASK
         )
         startActivity(intent)
