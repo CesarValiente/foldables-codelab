@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Launch to adjacent window</string>
+    <string name="open_in_adjacent_screen">Open Activity in adjacent window</string>
+    <string name="hello_second_screen">Hello from the adjacent window! :-)</string>
+</resources>

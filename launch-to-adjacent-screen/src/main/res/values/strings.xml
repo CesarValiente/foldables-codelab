@@ -1,7 +1,0 @@
-<resources>
-    <string name="app_name">Launch to adjacent screen</string>
-    <string name="open_in_adjacent_screen">Open Activity in adjacent screen</string>
-    <string name="open_app_in_adjacent_screen">Open App in adjacent screen</string>
-    <string name="hello_second_screen">Hello from the adjacent screen! :-)</string>
-    <string name="duo_sdk_url">https://docs.microsoft.com/dual-screen/android/get-duo-sdk</string>
-</resources>
