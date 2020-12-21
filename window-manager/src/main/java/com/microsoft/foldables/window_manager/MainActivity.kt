@@ -12,13 +12,14 @@ import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.util.Consumer
 import androidx.window.WindowLayoutInfo
 import androidx.window.WindowManager
-import kotlinx.android.synthetic.main.activity_main.*
+import com.microsoft.foldables.window_manager.databinding.ActivityMainBinding
 import java.util.concurrent.Executor
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var wm: WindowManager
     private val layoutStateChangeCallback = LayoutStateChangeCallback()
+    private lateinit var binding: ActivityMainBinding
 
     private fun runOnUiThreadExecutor(): Executor {
         val handler = Handler(Looper.getMainLooper())
@@ -29,7 +30,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         wm = WindowManager(this)
     }
@@ -48,16 +50,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun printLayoutStateChange(newLayoutInfo: WindowLayoutInfo) {
-        window_metrics.text =
+        binding.windowMetrics.text =
             "CurrentWindowMetrics: ${wm.currentWindowMetrics.bounds.flattenToString()}\n" +
                 "MaximumWindowMetrics: ${wm.maximumWindowMetrics.bounds.flattenToString()}"
 
-        layout_change_text.text = newLayoutInfo.toString()
+        binding.configurationChanged.text = newLayoutInfo.toString()
         if (newLayoutInfo.displayFeatures.size > 0) {
-            configuration_changed.text = "Spanned across displays"
+            binding.configurationChanged.text = "Spanned across displays"
             alignViewToDeviceFeatureBoundaries(newLayoutInfo)
         } else {
-            configuration_changed.text = "One logic/physical display - unspanned"
+            binding.configurationChanged.text = "One logic/physical display - unspanned"
         }
     }
 

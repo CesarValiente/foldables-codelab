@@ -6,15 +6,18 @@ import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_main.*
+import com.microsoft.foldables.drag.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity(), View.OnLongClickListener {
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        drag_text_view.tag = "text_view"
-        drag_text_view.setOnLongClickListener(this)
+        binding.dragTextView.tag = "text_view"
+        binding.dragTextView.setOnLongClickListener(this)
     }
 
     override fun onLongClick(view: View): Boolean {

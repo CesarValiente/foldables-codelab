@@ -7,14 +7,16 @@ import android.os.Bundle
 import android.view.DragEvent
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_main.*
+import com.microsoft.foldables.drop.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity(), View.OnDragListener {
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-        drop_edit_text.setOnDragListener(this)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        binding.dropEditText.setOnDragListener(this)
     }
 
     override fun onDrag(v: View, event: DragEvent): Boolean {
@@ -47,32 +49,37 @@ class MainActivity : AppCompatActivity(), View.OnDragListener {
         val dropPermissions = requestDragAndDropPermissions(event)
         val item = event.clipData.getItemAt(0)
         val dragData = item.text.toString()
-//        var view = event.localState as? View
-        drop_edit_text.setText(dragData)
+        binding.dropEditText.setText(dragData)
         dropPermissions?.release()
     }
 
     private fun clearBackgroundColor() {
-        drop_edit_text.background.clearColorFilter()
-        drop_edit_text.hint = getString(R.string.default_hint)
-        drop_edit_text.elevation = 0f
-        drop_edit_text.invalidate()
+        with (binding.dropEditText) {
+            background.clearColorFilter()
+            hint = getString(R.string.default_hint)
+            elevation = 0f
+            invalidate()
+        }
     }
 
     private fun setDragStartedBackground() {
         val colorFilter = PorterDuffColorFilter(Color.GREEN, PorterDuff.Mode.SRC_IN)
-        drop_edit_text.hint = getString(R.string.move_text_to_drop)
-        drop_edit_text.background.colorFilter = colorFilter
-        drop_edit_text.elevation = 4f
-        drop_edit_text.invalidate()
+        with (binding.dropEditText) {
+            hint = getString(R.string.move_text_to_drop)
+            background.colorFilter = colorFilter
+            elevation = 4f
+            invalidate()
+        }
     }
 
     private fun setDragEnteredBackground() {
         val colorFilter = PorterDuffColorFilter(Color.YELLOW, PorterDuff.Mode.SRC_IN)
-        drop_edit_text.hint = getString(R.string.drop_text_now)
-        drop_edit_text.background.colorFilter = colorFilter
-        drop_edit_text.elevation = 4f
-        drop_edit_text.invalidate()
+        with (binding.dropEditText) {
+            hint = getString(R.string.drop_text_now)
+            background.colorFilter = colorFilter
+            elevation = 4f
+            invalidate()
+        }
     }
 
     private fun isText(mime: String?): Boolean {
