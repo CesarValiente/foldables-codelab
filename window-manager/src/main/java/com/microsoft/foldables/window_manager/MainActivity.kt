@@ -64,7 +64,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun alignViewToDeviceFeatureBoundaries(newLayoutInfo: WindowLayoutInfo) {
-        val constraintLayout = findViewById<ConstraintLayout>(R.id.constraint_layout)
+        val constraintLayout = binding.constraintLayout
         val set = ConstraintSet()
         set.clone(constraintLayout)
 
