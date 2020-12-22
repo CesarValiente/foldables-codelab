@@ -81,8 +81,4 @@ class MainActivity : AppCompatActivity(), View.OnDragListener {
             invalidate()
         }
     }
-
-    private fun isText(mime: String?): Boolean {
-        return mime?.startsWith("text/") ?: false
-    }
 }
