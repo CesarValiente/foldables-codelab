@@ -14,7 +14,7 @@
         android:padding="20dp"
         android:text="@string/window_metrics"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/layout_change_text"
+        app:layout_constraintBottom_toTopOf="@+id/layout_change"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed" />
@@ -40,7 +40,7 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layout_change_text" />
+        app:layout_constraintTop_toBottomOf="@+id/layout_change" />
 
     <View
         android:id="@+id/device_feature"

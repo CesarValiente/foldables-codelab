@@ -91,7 +91,7 @@ class MainActivity : AppCompatActivity() {
             // Device feature is placed vertically
             set.setMargin(R.id.device_feature, ConstraintSet.START, rect.left)
             set.connect(
-                R.id.layout_change_text, ConstraintSet.END,
+                R.id.layout_change, ConstraintSet.END,
                 R.id.device_feature, ConstraintSet.START, 0
             )
         } else {
@@ -103,7 +103,7 @@ class MainActivity : AppCompatActivity() {
                 rect.top - statusBarHeight - toolBarHeight
             )
             set.connect(
-                R.id.layout_change_text, ConstraintSet.TOP,
+                R.id.layout_change, ConstraintSet.TOP,
                 R.id.device_feature, ConstraintSet.BOTTOM, 0
             )
         }
