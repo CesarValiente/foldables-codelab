@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
             "CurrentWindowMetrics: ${wm.currentWindowMetrics.bounds.flattenToString()}\n" +
                 "MaximumWindowMetrics: ${wm.maximumWindowMetrics.bounds.flattenToString()}"
 
-        binding.configurationChanged.text = newLayoutInfo.toString()
+        binding.layoutChange.text = newLayoutInfo.toString()
         if (newLayoutInfo.displayFeatures.size > 0) {
             binding.configurationChanged.text = "Spanned across displays"
             alignViewToDeviceFeatureBoundaries(newLayoutInfo)
