@@ -3,14 +3,17 @@ package com.microsoft.foldables.intent
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_main.*
+import com.microsoft.foldables.intent.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        open_activity_in_adjacent_screen.setOnClickListener { openActivityInAdjacentWindow() }
+        binding.openActivityInAdjacentScreen.setOnClickListener { openActivityInAdjacentWindow() }
     }
 
     private fun openActivityInAdjacentWindow() {
