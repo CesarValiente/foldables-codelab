@@ -25,7 +25,7 @@ android {
     compileSdkVersion 30
 
     defaultConfig {
-        applicationId "com.microsoft.foldables.drop"
+        applicationId "com.codelab.foldables.drop"
         minSdkVersion 24
         targetSdkVersion 30
         versionCode 1

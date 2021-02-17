@@ -16,7 +16,7 @@
  *
  */
 
-package com.microsoft.foldables.drop
+package com.codelab.foldables.drop
 
 import android.graphics.Color
 import android.graphics.PorterDuff
@@ -25,7 +25,7 @@ import android.os.Bundle
 import android.view.DragEvent
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.microsoft.foldables.drop.databinding.ActivityMainBinding
+import com.codelab.foldables.drop.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity(), View.OnDragListener {
     private lateinit var binding: ActivityMainBinding

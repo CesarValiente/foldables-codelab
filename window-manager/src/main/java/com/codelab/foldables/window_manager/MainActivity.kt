@@ -16,7 +16,7 @@
  *
  */
 
-package com.microsoft.foldables.window_manager
+package com.codelab.foldables.window_manager
 
 import android.graphics.Rect
 import android.os.Bundle
@@ -25,12 +25,11 @@ import android.os.Looper
 import android.util.TypedValue
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.util.Consumer
 import androidx.window.WindowLayoutInfo
 import androidx.window.WindowManager
-import com.microsoft.foldables.window_manager.databinding.ActivityMainBinding
+import com.codelab.foldables.window_manager.databinding.ActivityMainBinding
 import java.util.concurrent.Executor
 
 class MainActivity : AppCompatActivity() {

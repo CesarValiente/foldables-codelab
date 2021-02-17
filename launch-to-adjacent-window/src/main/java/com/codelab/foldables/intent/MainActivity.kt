@@ -16,12 +16,12 @@
  *
  */
 
-package com.microsoft.foldables.intent
+package com.codelab.foldables.intent
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.microsoft.foldables.intent.databinding.ActivityMainBinding
+import com.codelab.foldables.intent.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding

@@ -25,7 +25,7 @@ android {
     compileSdkVersion 30
 
     defaultConfig {
-        applicationId "com.microsoft.foldables.window_manager"
+        applicationId "com.codelab.foldables.window_manager"
         minSdkVersion 23
         targetSdkVersion 30
         versionCode 1

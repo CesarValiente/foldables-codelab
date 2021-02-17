@@ -16,7 +16,7 @@
  *
  */
 
-package com.microsoft.foldables.drag
+package com.codelab.foldables.drag
 
 import android.content.ClipData
 import android.content.ClipDescription
@@ -24,7 +24,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.microsoft.foldables.drag.databinding.ActivityMainBinding
+import com.codelab.foldables.drag.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity(), View.OnLongClickListener {
     private lateinit var binding: ActivityMainBinding
