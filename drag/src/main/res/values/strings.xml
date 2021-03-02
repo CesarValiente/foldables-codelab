@@ -18,5 +18,7 @@
 
 <resources>
     <string name="app_name">drag</string>
-    <string name="drag_text">Drag and drop is a great feature that adds a bit of magic to your app. \n Do you want to see how this is done? Please, keep watching :-)</string>
+    <string name="drag_text">Drag and drop is a great feature that adds a bit of magic to your app.\n
+        \nDo you want to see how this is done?\n
+        \nPlease, drag the text around, you will see its shadow and it will be ready to be dropped in a drop area :-)</string>
 </resources>
