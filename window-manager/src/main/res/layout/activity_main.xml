@@ -60,11 +60,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layout_change" />
 
+    <!-- It's not important where this view is placed by default, it will be adjusted dynamically in runtime -->
     <View
         android:id="@+id/device_feature"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@android:color/holo_red_dark"
-        android:visibility="gone" />
+        android:visibility="gone"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
