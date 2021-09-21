@@ -3,10 +3,11 @@ package com.codelab.foldables.window_manager
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import androidx.window.WindowInfoRepo
-import androidx.window.WindowLayoutInfo
-import androidx.window.WindowManager
-import androidx.window.rxjava2.windowLayoutInfoFlowable
+import androidx.window.layout.WindowInfoRepository
+import androidx.window.layout.WindowInfoRepository.Companion.windowInfoRepository
+import androidx.window.layout.WindowLayoutInfo
+import androidx.window.rxjava2.layout.windowLayoutInfoFlowable
+import androidx.window.rxjava2.layout.windowLayoutInfoObservable
 import com.codelab.foldables.window_manager.databinding.ActivityRxjavaBinding
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.cancel
@@ -16,9 +17,7 @@ class RxJavaActivity : AppCompatActivity() {
     private val TAG = "CESAR"
     private lateinit var binding: ActivityRxjavaBinding
 
-    private lateinit var windowInfoRepo: WindowInfoRepo
-    private lateinit var wm: WindowManager
-    private val scope = MainScope()
+    private lateinit var windowInfoRepo: WindowInfoRepository
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,15 +25,10 @@ class RxJavaActivity : AppCompatActivity() {
         setContentView(binding.root)
         showUI()
 
-        windowInfoRepo = WindowInfoRepo.create(this)
+        windowInfoRepo = windowInfoRepository()
 
         //If you want to get changes whenever there is an Activity recreation
-//        obtainWindowLayoutInfo()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        scope.cancel()
+        obtainWindowLayoutInfo()
     }
 
     private fun showUI() {
@@ -47,19 +41,18 @@ class RxJavaActivity : AppCompatActivity() {
     }
 
     private fun showUI(windowLayoutInfo: WindowLayoutInfo) {
-        Log.d(TAG, "---- showUI: ${windowLayoutInfo.displayFeatures} -----")
         binding.text1.text = "Size: ${windowLayoutInfo.displayFeatures.size}"
         binding.text2.text = "WindowLayoutInfo: ${windowLayoutInfo.displayFeatures}"
     }
 
     private fun obtainWindowLayoutInfo() {
         //Using Observables
-//        val observable = windowInfoRepo.windowLayoutInfoObservable()
-//        observable.subscribe { value -> showUI(value) }
+        val observable = windowInfoRepo.windowLayoutInfoObservable()
+        observable.subscribe { value -> showUI(value) }
 
         //Using Flowable
-        val observable = windowInfoRepo.windowLayoutInfoFlowable()
-        observable.subscribe { value -> showUI(value) }
+//        val observable = windowInfoRepo.windowLayoutInfoFlowable()
+//        observable.subscribe { value -> showUI(value) }
     }
 
 }

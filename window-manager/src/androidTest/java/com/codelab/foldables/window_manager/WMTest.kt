@@ -4,13 +4,12 @@ import android.graphics.Rect
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
-import androidx.window.DisplayFeature
-import androidx.window.WindowLayoutInfo
-import androidx.window.testing.WindowLayoutInfoPublisherRule
-import androidx.window.windowInfoRepository
+import androidx.window.layout.DisplayFeature
+import androidx.window.layout.WindowInfoRepository.Companion.windowInfoRepository
+import androidx.window.layout.WindowLayoutInfo
+import androidx.window.testing.layout.WindowLayoutInfoPublisherRule
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.async
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.take
 import kotlinx.coroutines.flow.toCollection
 import kotlinx.coroutines.test.runBlockingTest

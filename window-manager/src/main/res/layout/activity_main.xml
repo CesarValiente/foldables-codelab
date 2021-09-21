@@ -32,4 +32,13 @@
         android:text="RxJava sample"
         android:textSize="30sp" />
 
+    <Button
+        android:id="@+id/java_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_margin="20dp"
+        android:text="Java sample"
+        android:textSize="30sp" />
+
 </LinearLayout>

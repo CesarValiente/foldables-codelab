@@ -3,10 +3,12 @@ package com.codelab.foldables.window_manager
 
 import android.os.Bundle
 import android.util.Log
+import android.view.Window
 import androidx.appcompat.app.AppCompatActivity
-import androidx.window.WindowInfoRepo
-import androidx.window.WindowLayoutInfo
-import androidx.window.WindowManager
+import androidx.window.layout.WindowInfoRepository
+import androidx.window.layout.WindowInfoRepository.Companion.windowInfoRepository
+import androidx.window.layout.WindowLayoutInfo
+import androidx.window.layout.WindowMetricsCalculator
 import com.codelab.foldables.window_manager.databinding.ActivityFlowBinding
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.cancel
@@ -20,8 +22,8 @@ class FlowActivity : AppCompatActivity() {
     private val TAG = "CESAR"
     private lateinit var binding: ActivityFlowBinding
 
-    private lateinit var windowInfoRepo: WindowInfoRepo
-    private lateinit var wm: WindowManager
+    private lateinit var windowInfoRepo: WindowInfoRepository
+    private lateinit var windowMetricsCalculator: WindowMetricsCalculator
     private val scope = MainScope()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,7 +32,7 @@ class FlowActivity : AppCompatActivity() {
         setContentView(binding.root)
         showUI()
 
-        windowInfoRepo = WindowInfoRepo.create(this)
+        windowInfoRepo = windowInfoRepository()
 
         //If you want to get changes whenever there is an Activity recreation
 //        obtainWindowLayoutInfo()
@@ -48,6 +50,7 @@ class FlowActivity : AppCompatActivity() {
         binding.collect.setOnClickListener {
             Log.d(TAG, "---- before calling coroutine ----")
             obtainWindowLayoutInfo()
+            obtainWindowMetrics()
             Log.d(TAG, "---- after calling coroutine ----")
         }
     }
@@ -61,18 +64,18 @@ class FlowActivity : AppCompatActivity() {
     private fun obtainWindowLayoutInfo() {
         scope.launch {
             Log.d(TAG, "---- inside coroutine ----")
-            val data = windowInfoRepo.windowLayoutInfo
-            try {
-                data
-                    .onEach { value -> showUI(value) }
-                    .onCompletion { Log.d(TAG, "onCompletion") }
-                    .collect()
-                Log.d(TAG, "My events are consumed successfully")
-            } catch (e: Throwable) {
-                Log.d(TAG, "Exception from the flow: $e")
-            }
+            windowInfoRepo.windowLayoutInfo.collect { value -> showUI(value) }
             Log.d(TAG, "---- end coroutine ----")
         }
         Log.d(TAG, "------ end obtainWindowLayoutInfo ----")
+    }
+
+    private fun obtainWindowMetrics() {
+        val windowMetricsCalculator = WindowMetricsCalculator.getOrCreate()
+        val currentWindowMetrics = windowMetricsCalculator.computeCurrentWindowMetrics(this)
+        val maxWindowMetrics = windowMetricsCalculator.computeMaximumWindowMetrics(this)
+        binding.text3.text =
+            "CurrentWindowMetrics: ${currentWindowMetrics.bounds} \n " +
+                "MaxWindowMetrics: ${maxWindowMetrics.bounds}"
     }
 }

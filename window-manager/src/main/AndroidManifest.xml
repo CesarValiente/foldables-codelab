@@ -35,6 +35,7 @@
         <activity android:name="com.codelab.foldables.window_manager.CodelabActivity" />
         <activity android:name="com.codelab.foldables.window_manager.FlowActivity" />
         <activity android:name="com.codelab.foldables.window_manager.RxJavaActivity" />
+        <activity android:name="com.codelab.foldables.window_manager.JavaActivity" />
     </application>
 
 </manifest>

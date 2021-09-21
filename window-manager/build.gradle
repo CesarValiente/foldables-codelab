@@ -22,12 +22,12 @@ plugins {
 }
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 31
 
     defaultConfig {
         applicationId "com.codelab.foldables.window_manager"
         minSdkVersion 23
-        targetSdkVersion 30
+        targetSdkVersion 31
         versionCode 1
         versionName "1.0"
 
@@ -69,8 +69,9 @@ dependencies {
 //    implementation "androidx.window:window-rxjava2:1.0.0-SNAPSHOT"
 
     //Published
-    implementation "androidx.window:window:1.0.0-alpha08"
-    implementation "androidx.window:window-rxjava2:1.0.0-alpha08"
+    implementation "androidx.window:window:1.0.0-beta02"
+    implementation "androidx.window:window-rxjava2:1.0.0-beta02"
+    implementation "androidx.window:window-java:1.0.0-beta02"
 
     testImplementation 'junit:junit:4.13.1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
@@ -81,5 +82,5 @@ dependencies {
 //    androidTestImplementation "androidx.window:window-testing:1.0.0-SNAPSHOT"
 
     //Published
-    androidTestImplementation "androidx.window:window-testing:1.0.0-alpha08"
+    androidTestImplementation "androidx.window:window-testing:1.0.0-beta02"
 }
