@@ -69,9 +69,9 @@ dependencies {
 //    implementation "androidx.window:window-rxjava2:1.0.0-SNAPSHOT"
 
     //Published
-    implementation "androidx.window:window:1.0.0-beta02"
-    implementation "androidx.window:window-rxjava2:1.0.0-beta02"
-    implementation "androidx.window:window-java:1.0.0-beta02"
+    implementation "androidx.window:window:1.0.0-beta03"
+    implementation "androidx.window:window-rxjava2:1.0.0-beta03"
+    implementation "androidx.window:window-java:1.0.0-beta03"
 
     testImplementation 'junit:junit:4.13.1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
@@ -82,5 +82,5 @@ dependencies {
 //    androidTestImplementation "androidx.window:window-testing:1.0.0-SNAPSHOT"
 
     //Published
-    androidTestImplementation "androidx.window:window-testing:1.0.0-beta02"
+    androidTestImplementation "androidx.window:window-testing:1.0.0-beta03"
 }
