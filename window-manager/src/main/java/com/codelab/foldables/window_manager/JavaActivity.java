@@ -3,7 +3,6 @@ package com.codelab.foldables.window_manager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.util.Log;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +11,7 @@ import androidx.window.java.layout.WindowInfoRepositoryCallbackAdapter;
 import androidx.window.layout.WindowInfoRepository;
 import androidx.window.layout.WindowLayoutInfo;
 import androidx.window.layout.WindowMetrics;
+import androidx.window.layout.WindowMetricsCalculator;
 
 import com.codelab.foldables.window_manager.databinding.ActivityJavaBinding;
 
@@ -22,7 +22,6 @@ public class JavaActivity extends AppCompatActivity {
 
     private ActivityJavaBinding binding;
     private WindowInfoRepositoryCallbackAdapter adapter;
-    private Consumer<WindowMetrics> consumerWindowMetrics;
     private Consumer<WindowLayoutInfo> consumerWindowLayoutInfo;
 
     private Executor runOnUiThreadExecutor = command -> {
@@ -40,8 +39,7 @@ public class JavaActivity extends AppCompatActivity {
         WindowInfoRepository windowInfoRepository = WindowInfoRepository.Companion.getOrCreate(this);
         adapter = new WindowInfoRepositoryCallbackAdapter(windowInfoRepository);
 
-        consumerWindowMetrics =
-                windowMetrics -> binding.text1.setText("Window metrics: " + windowMetrics.getBounds().flattenToString());
+        showWindowMetrics();
         consumerWindowLayoutInfo = windowLayoutInfo -> showUI(windowLayoutInfo);
     }
 
@@ -49,7 +47,6 @@ public class JavaActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        adapter.addCurrentWindowMetricsListener(runOnUiThreadExecutor, consumerWindowMetrics);
         adapter.addWindowLayoutInfoListener(runOnUiThreadExecutor, consumerWindowLayoutInfo);
     }
 
@@ -57,12 +54,23 @@ public class JavaActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
 
-        adapter.removeCurrentWindowMetricsListener(consumerWindowMetrics);
         adapter.removeWindowLayoutInfoListener(consumerWindowLayoutInfo);
     }
 
     private void showUI(WindowLayoutInfo windowLayoutInfo) {
-        binding.text1.setText("Size: " + windowLayoutInfo.getDisplayFeatures().size());
-        binding.text2.setText("WindowLayoutInfo: " + windowLayoutInfo.getDisplayFeatures());
+        showWindowMetrics();
+
+        binding.text2.setText("Size: " + windowLayoutInfo.getDisplayFeatures().size() +
+                "\nWindowLayoutInfo: " + windowLayoutInfo.getDisplayFeatures());
+    }
+
+    private void showWindowMetrics() {
+        WindowMetricsCalculator windowMetricsCalculator = WindowMetricsCalculator.getOrCreate();
+        WindowMetrics maxWindowMetrics = windowMetricsCalculator.computeMaximumWindowMetrics(this);
+        WindowMetrics currentWindowMetrics = windowMetricsCalculator.computeCurrentWindowMetrics(this);
+
+        binding.text1.setText(
+                "Max Window metrics: " + maxWindowMetrics.getBounds().flattenToString() +
+                        "\nCurrent Window Metrics: " + currentWindowMetrics.getBounds().flattenToString());
     }
 }
