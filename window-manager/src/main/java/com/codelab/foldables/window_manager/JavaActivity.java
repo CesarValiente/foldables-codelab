@@ -7,8 +7,8 @@ import android.os.Looper;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.util.Consumer;
-import androidx.window.java.layout.WindowInfoRepositoryCallbackAdapter;
-import androidx.window.layout.WindowInfoRepository;
+import androidx.window.java.layout.WindowInfoTrackerCallbackAdapter;
+import androidx.window.layout.WindowInfoTracker;
 import androidx.window.layout.WindowLayoutInfo;
 import androidx.window.layout.WindowMetrics;
 import androidx.window.layout.WindowMetricsCalculator;
@@ -21,7 +21,7 @@ public class JavaActivity extends AppCompatActivity {
     private String TAG = "CESAR";
 
     private ActivityJavaBinding binding;
-    private WindowInfoRepositoryCallbackAdapter adapter;
+    private WindowInfoTrackerCallbackAdapter adapter;
     private Consumer<WindowLayoutInfo> consumerWindowLayoutInfo;
 
     private Executor runOnUiThreadExecutor = command -> {
@@ -36,8 +36,8 @@ public class JavaActivity extends AppCompatActivity {
         binding = ActivityJavaBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        WindowInfoRepository windowInfoRepository = WindowInfoRepository.Companion.getOrCreate(this);
-        adapter = new WindowInfoRepositoryCallbackAdapter(windowInfoRepository);
+        WindowInfoTracker windowInfoTracker = WindowInfoTracker.Companion.getOrCreate(this);
+        adapter = new WindowInfoTrackerCallbackAdapter(windowInfoTracker);
 
         showWindowMetrics();
         consumerWindowLayoutInfo = windowLayoutInfo -> showUI(windowLayoutInfo);
@@ -47,7 +47,7 @@ public class JavaActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        adapter.addWindowLayoutInfoListener(runOnUiThreadExecutor, consumerWindowLayoutInfo);
+        adapter.addWindowLayoutInfoListener(this, runOnUiThreadExecutor, consumerWindowLayoutInfo);
     }
 
     @Override

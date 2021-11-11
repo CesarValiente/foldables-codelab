@@ -1,23 +1,18 @@
 package com.codelab.foldables.window_manager
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import androidx.window.layout.WindowInfoRepository
-import androidx.window.layout.WindowInfoRepository.Companion.windowInfoRepository
+import androidx.window.layout.WindowInfoTracker
 import androidx.window.layout.WindowLayoutInfo
-import androidx.window.rxjava2.layout.windowLayoutInfoFlowable
 import androidx.window.rxjava2.layout.windowLayoutInfoObservable
 import com.codelab.foldables.window_manager.databinding.ActivityRxjavaBinding
-import kotlinx.coroutines.MainScope
-import kotlinx.coroutines.cancel
 
 class RxJavaActivity : AppCompatActivity() {
 
     private val TAG = "CESAR"
     private lateinit var binding: ActivityRxjavaBinding
 
-    private lateinit var windowInfoRepo: WindowInfoRepository
+    private lateinit var windowInfoTracker: WindowInfoTracker
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,7 +20,7 @@ class RxJavaActivity : AppCompatActivity() {
         setContentView(binding.root)
         showUI()
 
-        windowInfoRepo = windowInfoRepository()
+        windowInfoTracker = WindowInfoTracker.getOrCreate(this)
 
         //If you want to get changes whenever there is an Activity recreation
         obtainWindowLayoutInfo()
@@ -47,7 +42,7 @@ class RxJavaActivity : AppCompatActivity() {
 
     private fun obtainWindowLayoutInfo() {
         //Using Observables
-        val observable = windowInfoRepo.windowLayoutInfoObservable()
+        val observable = windowInfoTracker.windowLayoutInfoObservable(this)
         observable.subscribe { value -> showUI(value) }
 
         //Using Flowable
