@@ -17,6 +17,7 @@
   -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.codelab.foldables.window_manager">
 
     <application
@@ -26,17 +27,53 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.codelab.foldables.window_manager.MainActivity"
+        <activity
+            android:name="com.codelab.foldables.window_manager.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.codelab.foldables.window_manager.CodelabActivity" />
-        <activity android:name="com.codelab.foldables.window_manager.FlowActivity" />
-        <activity android:name="com.codelab.foldables.window_manager.RxJavaActivity" />
-        <activity android:name="com.codelab.foldables.window_manager.JavaActivity" />
+        <activity
+            android:name="com.codelab.foldables.window_manager.CodelabActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.codelab.foldables.window_manager.FlowActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.codelab.foldables.window_manager.RxJavaActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.codelab.foldables.window_manager.JavaActivity"
+            android:exported="true" />
+
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            android:exported="false"
+            tools:node="merge">
+            <!-- This entry makes ExampleWindowInitializer discoverable. -->
+            <meta-data
+                android:name="com.codelab.foldables.window_manager.embedding.ExampleWindowInitializer"
+                android:value="androidx.startup" />
+        </provider>
+
+        <activity
+            android:name="com.codelab.foldables.window_manager.embedding.ActivityA"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.codelab.foldables.window_manager.embedding.ActivityB"
+            android:exported="true" />
+        <activity
+            android:name="com.codelab.foldables.window_manager.embedding.ActivityC"
+            android:exported="true" />
     </application>
+
 
 </manifest>
