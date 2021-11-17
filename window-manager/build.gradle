@@ -64,24 +64,24 @@ dependencies {
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
 
-    //Snapshots
-    implementation "androidx.window:window:1.0.0-SNAPSHOT"
-    implementation "androidx.window:window-rxjava2:1.0.0-SNAPSHOT"
-    implementation "androidx.window:window-java:1.0.0-SNAPSHOT"
 
-    //Published
-//    implementation "androidx.window:window:1.0.0-beta03"
-//    implementation "androidx.window:window-rxjava2:1.0.0-beta03"
-//    implementation "androidx.window:window-java:1.0.0-beta03"
+    //WM versions (snapshot and released)
+    ext.window_version = "1.0.0-SNAPSHOT"
+//    ext.window_version = "1.0.0-beta04"
+
+    //Embedded activities
+    implementation("androidx.startup:startup-runtime:1.1.0")
+
+    //Snapshots
+    implementation "androidx.window:window:$window_version"
+    implementation "androidx.window:window-rxjava2:$window_version"
+    implementation "androidx.window:window-java:$window_version"
 
     testImplementation 'junit:junit:4.13.1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.0"
 
-    //Snapshot
-    androidTestImplementation "androidx.window:window-testing:1.0.0-SNAPSHOT"
-
-    //Published
-//    androidTestImplementation "androidx.window:window-testing:1.0.0-beta03"
+    //WM Testing
+    androidTestImplementation "androidx.window:window-testing:$window_version"
 }

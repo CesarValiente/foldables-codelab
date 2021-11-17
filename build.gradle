@@ -38,7 +38,7 @@ allprojects {
         jcenter()
         mavenCentral()
         maven {
-            url 'https://androidx.dev/snapshots/builds/7905495/artifacts/repository/'
+            url 'https://androidx.dev/snapshots/builds/7904636/artifacts/repository/'
         }
     }
 }
