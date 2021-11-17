@@ -19,7 +19,7 @@
     <!-- Automatically launch a placeholder for the list activity. -->
     <SplitPlaceholderRule
         window:placeholderActivityName="com.codelab.foldables.window_manager.embedding.ActivityC"
-        window:splitMinWidth="600dp"
+        window:splitMinWidth="300dp"
         window:splitRatio="0.3">
         <ActivityFilter window:activityName="com.codelab.foldables.window_manager.embedding.ActivityA" />
     </SplitPlaceholderRule>
