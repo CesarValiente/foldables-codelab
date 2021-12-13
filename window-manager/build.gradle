@@ -66,8 +66,8 @@ dependencies {
 
 
     //WM versions (snapshot and released)
-//    ext.window_version = "1.0.0-SNAPSHOT"
-    ext.window_version = "1.0.0-beta04"
+    ext.window_version = "1.0.0-SNAPSHOT"
+//    ext.window_version = "1.0.0-beta04"
 
     //Embedded activities
     implementation("androidx.startup:startup-runtime:1.1.0")
