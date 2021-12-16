@@ -47,6 +47,9 @@
         <activity
             android:name="com.codelab.foldables.window_manager.JavaActivity"
             android:exported="true" />
+        <activity
+            android:name="com.codelab.foldables.window_manager.preference.PreferenceActivity"
+            android:exported="true" />
 
         <provider
             android:name="androidx.startup.InitializationProvider"

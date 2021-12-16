@@ -23,6 +23,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.codelab.foldables.window_manager.databinding.ActivityMainBinding
 import com.codelab.foldables.window_manager.embedding.ActivityA
+import com.codelab.foldables.window_manager.preference.PreferenceActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -51,6 +52,10 @@ class MainActivity : AppCompatActivity() {
         }
         binding.embeddedActivitiesBtn.setOnClickListener {
             val intent = Intent(this, ActivityA::class.java)
+            startActivity(intent)
+        }
+        binding.preferencesBtn.setOnClickListener {
+            val intent = Intent(this, PreferenceActivity::class.java)
             startActivity(intent)
         }
     }
