@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <Preference
+        android:fragment="com.codelab.foldables.window_manager.preference.FragmentOne"
+        android:icon="@android:drawable/ic_btn_speak_now"
+        android:key="pref_one"
+        android:summary="This is the preference ONE"
+        android:title="Preference one" />
+    <Preference
+        android:fragment="com.codelab.foldables.window_manager.preference.FragmentTwo"
+        android:icon="@android:drawable/ic_input_add"
+        android:key="pref_two"
+        android:summary="This is the preference TWO"
+        android:title="Preference two" />
+    <Preference
+        android:fragment="com.codelab.foldables.window_manager.preference.FragmentThree"
+        android:icon="@android:drawable/ic_delete"
+        android:key="pref_three"
+        android:summary="This is the preference THREE"
+        android:title="Preference three" />
+</PreferenceScreen>
