@@ -50,6 +50,11 @@
         <activity
             android:name="com.codelab.foldables.window_manager.preference.PreferenceActivity"
             android:exported="true" />
+        <activity
+            android:name="com.codelab.foldables.window_manager.navigation.NavigationActivity"
+            android:exported="true">
+            <nav-graph android:value="@navigation/nav_main" />
+        </activity>
 
         <provider
             android:name="androidx.startup.InitializationProvider"
@@ -76,6 +81,7 @@
         <activity
             android:name="com.codelab.foldables.window_manager.embedding.ActivityC"
             android:exported="true" />
+
     </application>
 
 
