@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@+id/first_fragment"
+    tools:ignore="DuplicateIds">
+
+    <fragment
+        android:id="@+id/first_fragment"
+        android:name="com.codelab.foldables.window_manager.preference.FragmentOne"
+        android:label="First" />
+    <fragment
+        android:id="@+id/second_fragment"
+        android:name="com.codelab.foldables.window_manager.preference.FragmentTwo"
+        android:label="Second" />
+    <fragment
+        android:id="@+id/third_fragment"
+        android:name="com.codelab.foldables.window_manager.preference.FragmentThree"
+        android:label="Third" />
+</navigation>
