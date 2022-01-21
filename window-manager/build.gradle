@@ -72,7 +72,7 @@ dependencies {
     //Embedded activities
     implementation("androidx.startup:startup-runtime:1.1.0")
 
-    //Snapshots
+    //WM
     implementation "androidx.window:window:$window_version"
     implementation "androidx.window:window-rxjava2:$window_version"
     implementation "androidx.window:window-java:$window_version"
