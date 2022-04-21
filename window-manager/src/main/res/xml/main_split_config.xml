@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?><!-- The split configuration for activities. -->
+<resources xmlns:window="http://schemas.android.com/apk/res-auto">
+
+    <!-- Automatically split the following activity pairs. -->
+    <SplitPairRule
+        window:finishPrimaryWithSecondary="true"
+        window:finishSecondaryWithPrimary="true"
+        window:splitMinWidth="600dp"
+        window:splitRatio="0.3">
+        <SplitPairFilter
+            window:primaryActivityName="com.codelab.foldables.window_manager.embedding.ActivityA"
+            window:secondaryActivityName="com.codelab.foldables.window_manager.embedding.ActivityB" />
+        <SplitPairFilter
+            window:primaryActivityName="*"
+            window:secondaryActivityAction="android.intent.action.VIEW"
+            window:secondaryActivityName="*/*" />
+    </SplitPairRule>
+
+    <!-- Automatically launch a placeholder for the list activity. -->
+    <SplitPlaceholderRule
+        window:placeholderActivityName="com.codelab.foldables.window_manager.embedding.ActivityC"
+        window:splitMinWidth="300dp"
+        window:splitRatio="0.3">
+        <ActivityFilter window:activityName="com.codelab.foldables.window_manager.embedding.ActivityA" />
+    </SplitPlaceholderRule>
+
+</resources>

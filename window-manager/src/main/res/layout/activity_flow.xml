@@ -2,52 +2,48 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
     android:orientation="vertical">
 
-    <Button
-        android:id="@+id/codelab_btn"
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
         android:layout_margin="20dp"
-        android:text="Codelab sample"
+        android:text="WM and Flow"
+        android:textSize="40sp"
+        android:textStyle="bold|italic" />
+
+    <TextView
+        android:id="@+id/text_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="Text1"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/text_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="Text2"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/text_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="Text3"
         android:textSize="30sp" />
 
     <Button
-        android:id="@+id/flow_btn"
+        android:id="@+id/collect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
         android:layout_margin="20dp"
-        android:text="Flow sample"
-        android:textSize="30sp" />
-
-    <Button
-        android:id="@+id/rxjava_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:layout_margin="20dp"
-        android:text="RxJava sample"
-        android:textSize="30sp" />
-
-    <Button
-        android:id="@+id/java_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:layout_margin="20dp"
-        android:text="Java sample"
-        android:textSize="30sp" />
-
-    <Button
-        android:id="@+id/embedded_activities_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:layout_margin="20dp"
-        android:text="Embedded Activities"
+        android:text="Collect"
         android:textSize="30sp" />
 
 </LinearLayout>
