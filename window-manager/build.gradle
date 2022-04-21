@@ -66,16 +66,16 @@ dependencies {
 
 
     //WM versions (snapshot and released)
-    ext.window_version = "1.0.0-SNAPSHOT"
-//    ext.window_version = "1.0.0-beta04"
+//    ext.window_version = "1.0.0-SNAPSHOT"
+    ext.window_version = "1.1.0-alpha01"
 
     //Embedded activities
     implementation("androidx.startup:startup-runtime:1.1.0")
 
     //WM
     implementation "androidx.window:window:$window_version"
-    implementation "androidx.window:window-rxjava2:$window_version"
-    implementation "androidx.window:window-java:$window_version"
+    implementation "androidx.window:window-rxjava2:1.0.0"
+    implementation "androidx.window:window-java:1.0.0"
 
     testImplementation 'junit:junit:4.13.1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
@@ -83,5 +83,5 @@ dependencies {
     androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.0"
 
     //WM Testing
-    androidTestImplementation "androidx.window:window-testing:$window_version"
+    androidTestImplementation "androidx.window:window-testing:1.0.0"
 }
