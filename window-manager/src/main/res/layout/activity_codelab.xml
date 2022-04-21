@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?><!--
+<?xml version="1.0" encoding="utf-8"?>
+<!--
   ~ /*
   ~  * Copyright (C) 2021 Google Inc.
   ~  *
@@ -15,21 +16,20 @@
   ~  * limitations under the License.
   ~  */
   -->
-
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/constraint_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CodelabActivity">
+    tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/window_metrics"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="20dp"
-        android:text="@string/window_metrics"
+        tools:text="Window metrics"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/layout_change"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,7 +41,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="20dp"
-        android:text="@string/layout_change_text"
+        tools:text="Layout change"
         android:textSize="20sp"
         app:layout_constrainedWidth="true"
         app:layout_constraintBottom_toTopOf="@+id/configuration_changed"
@@ -53,19 +53,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="20dp"
-        android:text="@string/configuration_changed"
+        tools:text="Using one logic/physical display - unspanned"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layout_change" />
 
-    <!-- It's not important where this view is placed by default, it will be adjusted dynamically in runtime -->
     <View
-        android:id="@+id/device_feature"
+        android:id="@+id/folding_feature"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@android:color/holo_red_dark"
         android:visibility="gone"
         tools:ignore="MissingConstraints" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
