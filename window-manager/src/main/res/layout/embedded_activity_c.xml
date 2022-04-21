@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_green_light"
+    android:background="@android:color/holo_orange_light"
     android:gravity="start|center_vertical"
     android:orientation="vertical">
 
@@ -19,5 +19,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Launch Activity B"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/is_activity_embedded"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="is activity embedded?"
         android:textSize="30sp" />
 </LinearLayout>
