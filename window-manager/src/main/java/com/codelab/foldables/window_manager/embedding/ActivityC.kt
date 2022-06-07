@@ -2,7 +2,9 @@ package com.codelab.foldables.window_manager.embedding
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.window.embedding.SplitController
 import com.codelab.foldables.window_manager.databinding.EmbeddedActivityCBinding
 
 class ActivityC : AppCompatActivity() {
@@ -17,6 +19,10 @@ class ActivityC : AppCompatActivity() {
         binding.launchActivityB.setOnClickListener {
             val intent = Intent(this, ActivityB::class.java)
             startActivity(intent)
+        }
+        binding.isActivityEmbedded.setOnClickListener {
+            val isActivityEmbedded = SplitController.getInstance().isActivityEmbedded(this)
+            Toast.makeText(this, "activity embedded? $isActivityEmbedded", Toast.LENGTH_SHORT).show()
         }
     }
 }

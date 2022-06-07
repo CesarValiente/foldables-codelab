@@ -20,4 +20,11 @@
         android:layout_height="wrap_content"
         android:text="Launch Activity B"
         android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/is_activity_embedded"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="isActivityEmbedded?"
+        android:textSize="30sp" />
 </LinearLayout>

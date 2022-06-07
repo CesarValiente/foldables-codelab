@@ -1,10 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_orange_dark"
-    android:text="Activity B"
-    android:textColor="@android:color/black"
-    android:textSize="30sp">
+    android:background="@android:color/holo_green_light"
+    android:gravity="start|center_vertical"
+    android:orientation="vertical">
 
-</TextView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="Activity B"
+        android:textColor="@android:color/black"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/is_activity_embedded"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="is activity embedded?"
+        android:textSize="30sp" />
+
+</LinearLayout>
