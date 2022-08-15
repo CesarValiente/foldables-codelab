@@ -50,7 +50,7 @@ class WMTest {
         }
 
         onView(withId(R.id.layout_change)).check(
-            isCompletelyLeftOf(withId(R.id.device_feature))
+            isCompletelyLeftOf(withId(R.id.folding_feature))
         )
     }
 
@@ -70,7 +70,7 @@ class WMTest {
         }
 
         onView(withId(R.id.layout_change)).check(
-            isCompletelyBelow(withId(R.id.device_feature))
+            isCompletelyBelow(withId(R.id.folding_feature))
         )
     }
 }
