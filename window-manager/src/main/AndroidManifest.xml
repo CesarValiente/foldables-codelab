@@ -51,6 +51,7 @@
             android:name="com.codelab.foldables.window_manager.WindowSizeClassesActivity"
             android:exported="true" />
 
+        <!-- Embedded activities -->
         <provider
             android:name="androidx.startup.InitializationProvider"
             android:authorities="${applicationId}.androidx-startup"
@@ -76,6 +77,11 @@
         <activity
             android:name="com.codelab.foldables.window_manager.embedding.ActivityC"
             android:exported="true" />
+        <activity
+            android:name="com.codelab.foldables.window_manager.embedding.ActivityD"
+            android:exported="true" />
+        <!-- End of Embedded Actvities -->
+
     </application>
 
 

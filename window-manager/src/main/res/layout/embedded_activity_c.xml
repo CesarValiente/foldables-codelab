@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/holo_orange_light"
-    android:gravity="start|center_vertical"
+    android:gravity="center"
     android:orientation="vertical">
 
     <TextView
@@ -12,19 +12,14 @@
         android:layout_margin="20dp"
         android:text="Activity C"
         android:textColor="@android:color/black"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
     <Button
-        android:id="@+id/launch_activity_b"
+        android:id="@+id/launch_activity_d"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Launch Activity B"
-        android:textSize="30sp" />
+        android:text="Launch Activity D"
+        android:textSize="20sp" />
 
-    <Button
-        android:id="@+id/is_activity_embedded"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="is activity embedded?"
-        android:textSize="30sp" />
 </LinearLayout>

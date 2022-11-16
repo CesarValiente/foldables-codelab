@@ -1,31 +1,32 @@
-<?xml version="1.0" encoding="utf-8"?><!-- The split configuration for activities. -->
+<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:window="http://schemas.android.com/apk/res-auto">
 
-    <!--This is the initial test scenario that we will see after clicking
-    on EmbeddingActivities button.
-    Automatically launch a placeholder for the list activity. -->
+    <!-- A placeholder is useful when the content in the secondary side activity is not ready.
+    We can place a placeholder there so later we can load the specific Activity content in there).
+    In our sample, when we are in the Activity A and we have enough room
+    (that meets the split rules requirements) to show the Activity B, we will show them
+    side-by-side. Activity B would be our placeholder. If there is not enough room to show them
+    side-by-side, Activity B will be shown on top of Activity A. -->
     <SplitPlaceholderRule
-        window:finishPrimaryWithSecondary="adjacent"
-        window:placeholderActivityName="com.codelab.foldables.window_manager.embedding.ActivityC"
+        window:placeholderActivityName="com.codelab.foldables.window_manager.embedding.ActivityB"
         window:splitMinWidth="537dp"
-        window:splitRatio="0.5"
-        window:stickyPlaceholder="true">
+        window:splitRatio="0.5">
         <ActivityFilter window:activityName="com.codelab.foldables.window_manager.embedding.ActivityA" />
     </SplitPlaceholderRule>
 
-    <!-- Automatically split the following activity pairs. -->
+    <!-- Automatically split the following activity pairs when the window split rules are meet.
+     In our sample, when we are in Activity C, if we click on its button to open Activity D,
+     if there is enough room (that meets the split rules requirements), the Activity D will be
+     launched side-by-side with the Activity C. If there is not enough room to show them, then
+     it will show on top of the Activity C.-->
     <SplitPairRule
-        window:finishPrimaryWithSecondary="always"
+        window:finishPrimaryWithSecondary="adjacent"
         window:finishSecondaryWithPrimary="adjacent"
-        window:splitLayoutDirection="ltr"
+        window:splitLayoutDirection="rtl"
         window:splitMinWidth="537dp"
         window:splitRatio="0.5">
         <SplitPairFilter
-            window:primaryActivityName="com.codelab.foldables.window_manager.embedding.ActivityA"
-            window:secondaryActivityName="com.codelab.foldables.window_manager.embedding.ActivityB" />
-        <SplitPairFilter
-            window:primaryActivityName="*"
-            window:secondaryActivityAction="android.intent.action.VIEW"
-            window:secondaryActivityName="*/*" />
+            window:primaryActivityName="com.codelab.foldables.window_manager.embedding.ActivityC"
+            window:secondaryActivityName="com.codelab.foldables.window_manager.embedding.ActivityD" />
     </SplitPairRule>
 </resources>
