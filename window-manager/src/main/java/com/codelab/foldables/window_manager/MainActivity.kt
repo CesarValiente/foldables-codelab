@@ -55,9 +55,10 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, ActivityA::class.java)
             startActivity(intent)
         }
-        binding.cesar.setOnClickListener {
-            val isActivityEmbedded = SplitController.getInstance().isActivityEmbedded(this)
-            Toast.makeText(this, "activity embedded? $isActivityEmbedded", Toast.LENGTH_SHORT).show()
+        binding.windowSizeClassesBtn.setOnClickListener {
+            val intent = Intent(this, WindowSizeClassesActivity::class.java)
+            startActivity(intent)
         }
+
     }
 }
