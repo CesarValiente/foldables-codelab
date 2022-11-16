@@ -51,12 +51,12 @@
         android:textSize="30sp" />
 
     <Button
-        android:id="@+id/cesar"
+        android:id="@+id/window_size_classes_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
         android:layout_margin="20dp"
-        android:text="is Activity embedded?"
+        android:text="Window Size classes"
         android:textSize="30sp" />
 
 </LinearLayout>
